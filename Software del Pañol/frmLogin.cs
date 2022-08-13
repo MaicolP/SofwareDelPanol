@@ -9,11 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using Dominio;
+using System.Runtime.InteropServices;
 
 namespace Software_del_Pañol
 {
     public partial class frmLogin : Form
     {
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         public frmLogin()
         {
             InitializeComponent();
@@ -42,6 +50,23 @@ namespace Software_del_Pañol
                 }
             }
 
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void pnlMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
