@@ -8,23 +8,23 @@ using MySql.Data.MySqlClient;
 
 namespace Persistencia
 {
-    public class pPersona : clsPersistencia
+    public class pUsuario : clsPersistencia
     {
-        public ePersona login(string nombre, string clave)
+        public eUsuario login(string nombre, string clave)
         {
-            ePersona persona = null;
+            eUsuario usuario = null;
             string consultaSQL = "SELECT * FROM persona WHERE ci='" + nombre + "' AND clave='" + clave + "';";
             MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
             if (resultado.Read())
             {
-                persona = recrearP(resultado);
+                usuario = recrearP(resultado);
             }
-            return persona;
+            return usuario;
         }
 
-        private ePersona recrearP(MySqlDataReader resultado)
+        private eUsuario recrearP(MySqlDataReader resultado)
         {
-            ePersona persona = new ePersona();
+            eUsuario persona = new eUsuario();
             persona.id = Convert.ToInt16(resultado.GetString("id"));
             persona.ci = resultado.GetString("ci");
             persona.nombre = resultado.GetString("nombre");

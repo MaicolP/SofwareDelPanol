@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class ePersona
+    public class eUsuario
     {
         public int id { get; set; }
         public string ci { get; set; }

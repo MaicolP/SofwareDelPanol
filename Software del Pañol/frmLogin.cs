@@ -31,9 +31,9 @@ namespace Software_del_Pañol
 
             } else
             {
-                dPersona unDp = new dPersona();
-                ePersona persona = unDp.login(txtUsuario.Text, txtClave.Text);
-                if (persona == null)
+                dUsuario unU = new dUsuario();
+                eUsuario usuario = unU.login(txtUsuario.Text, txtClave.Text);
+                if (usuario == null)
                 {
 
                 } else

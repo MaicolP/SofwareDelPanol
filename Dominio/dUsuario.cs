@@ -8,12 +8,12 @@ using Persistencia;
 
 namespace Dominio
 {
-    public class dPersona
+    public class dUsuario
     {
-        public ePersona login(string nombre, string clave)
+        public eUsuario login(string nombre, string clave)
         {
-            pPersona unP = new pPersona();
-            return unP.login(nombre, clave);
+            pUsuario unU = new pUsuario();
+            return unU.login(nombre, clave);
         }
     }
 }
