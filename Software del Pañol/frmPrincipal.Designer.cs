@@ -36,6 +36,13 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblHumedad = new System.Windows.Forms.Label();
+            this.lblTemperatura = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +57,10 @@
             this.calendarioDeReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
@@ -106,10 +117,10 @@
             // 
             this.pnlTitulo.BackColor = System.Drawing.Color.White;
             this.pnlTitulo.Controls.Add(this.lblFecha);
-            this.pnlTitulo.Controls.Add(this.panel3);
             this.pnlTitulo.Controls.Add(this.btnCerrar);
             this.pnlTitulo.Controls.Add(this.btnMaximizar);
             this.pnlTitulo.Controls.Add(this.btnMinimizar);
+            this.pnlTitulo.Controls.Add(this.panel3);
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
@@ -139,6 +150,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(234)))));
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 36);
@@ -146,13 +159,87 @@
             this.panel1.Size = new System.Drawing.Size(250, 614);
             this.panel1.TabIndex = 14;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(234)))));
+            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(250, 113);
+            this.panel4.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Location = new System.Drawing.Point(50, 101);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 2);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 73);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(235, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Gestor de Préstamos";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.unknown2;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 70);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(234)))));
+            this.panel5.Controls.Add(this.lblHumedad);
+            this.panel5.Controls.Add(this.lblTemperatura);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 557);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(250, 57);
+            this.panel5.TabIndex = 17;
+            // 
+            // lblHumedad
+            // 
+            this.lblHumedad.AutoSize = true;
+            this.lblHumedad.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHumedad.ForeColor = System.Drawing.Color.White;
+            this.lblHumedad.Location = new System.Drawing.Point(12, 10);
+            this.lblHumedad.Name = "lblHumedad";
+            this.lblHumedad.Size = new System.Drawing.Size(110, 19);
+            this.lblHumedad.TabIndex = 17;
+            this.lblHumedad.Text = "Humedad : 50%";
+            // 
+            // lblTemperatura
+            // 
+            this.lblTemperatura.AutoSize = true;
+            this.lblTemperatura.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperatura.ForeColor = System.Drawing.Color.White;
+            this.lblTemperatura.Location = new System.Drawing.Point(12, 29);
+            this.lblTemperatura.Name = "lblTemperatura";
+            this.lblTemperatura.Size = new System.Drawing.Size(133, 19);
+            this.lblTemperatura.TabIndex = 16;
+            this.lblTemperatura.Text = "Temperatura : 20°C";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(234)))));
             this.panel2.Controls.Add(this.msMenu);
-            this.panel2.Location = new System.Drawing.Point(0, 117);
+            this.panel2.Location = new System.Drawing.Point(0, 110);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(250, 468);
+            this.panel2.Size = new System.Drawing.Size(250, 450);
             this.panel2.TabIndex = 15;
             // 
             // msMenu
@@ -171,7 +258,7 @@
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.msMenu.Size = new System.Drawing.Size(224, 468);
+            this.msMenu.Size = new System.Drawing.Size(224, 450);
             this.msMenu.TabIndex = 14;
             this.msMenu.Text = "menuStrip1";
             // 
@@ -190,6 +277,7 @@
             this.agregarUsuarioToolStripMenuItem,
             this.eliminarUsuarioToolStripMenuItem,
             this.listaDeUsuariosToolStripMenuItem});
+            this.gestionDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestionDeUsuariosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5);
@@ -199,21 +287,24 @@
             // 
             // agregarUsuarioToolStripMenuItem
             // 
+            this.agregarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
             this.agregarUsuarioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
+            this.eliminarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar usuario";
             // 
             // listaDeUsuariosToolStripMenuItem
             // 
+            this.listaDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaDeUsuariosToolStripMenuItem.Name = "listaDeUsuariosToolStripMenuItem";
-            this.listaDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.listaDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
             this.listaDeUsuariosToolStripMenuItem.Text = "Lista de usuarios";
             // 
             // gestionDeEquiposToolStripMenuItem
@@ -277,6 +368,12 @@
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.msMenu.ResumeLayout(false);
@@ -305,5 +402,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblHumedad;
+        private System.Windows.Forms.Label lblTemperatura;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
