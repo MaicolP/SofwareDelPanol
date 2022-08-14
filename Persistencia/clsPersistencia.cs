@@ -14,7 +14,7 @@ namespace Persistencia
 
         public void AbrirConexion()
         {
-            miConexion = "server=localhost; uid=root ; password= ; database=bd_audiovisuales;"; 
+            miConexion = "server=localhost; uid=root ; password= ; database=bd_audiovisual;"; 
                                                                                                
             con = new MySqlConnection(miConexion); 
             con.Open();

@@ -15,6 +15,7 @@ namespace Software_del_Pañol
 {
     public partial class frmLogin : Form
     {
+        public static eUsuario usuario;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -36,17 +37,21 @@ namespace Software_del_Pañol
         {
             if (txtClave.Text == "" || txtUsuario.Text == "")
             {
-
+                lblMensaje.Text = "Porfavor complete los campos";
             } else
             {
                 dUsuario unU = new dUsuario();
-                eUsuario usuario = unU.login(txtUsuario.Text, txtClave.Text);
+                usuario = unU.login(txtUsuario.Text, txtClave.Text);
                 if (usuario == null)
                 {
-
+                    lblMensaje.Text = "Usuario o contraseña incorrecta";
                 } else
                 {
+                    this.Hide();
 
+                    frmPrincipal frm1 = new frmPrincipal();
+
+                    frm1.Show();
                 }
             }
 
@@ -67,6 +72,16 @@ namespace Software_del_Pañol
             ReleaseCapture();
 
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtUsuarioClave_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text != "" && txtClave.Text != "") lblMensaje.Text = "";
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }
