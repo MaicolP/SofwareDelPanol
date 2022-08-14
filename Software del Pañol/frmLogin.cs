@@ -28,11 +28,6 @@ namespace Software_del_Pañol
             InitializeComponent();
         }
 
-        private void lblFecha_Paint(object sender, PaintEventArgs e)
-        {
-            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtClave.Text == "" || txtUsuario.Text == "")
@@ -82,6 +77,11 @@ namespace Software_del_Pañol
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void lblFecha_Paint(object sender, PaintEventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }
