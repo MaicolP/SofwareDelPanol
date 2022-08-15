@@ -13,7 +13,7 @@ namespace Persistencia
         public eUsuario login(string nombre, string clave)
         {
             eUsuario usuario = null;
-            string consultaSQL = "SELECT * FROM persona WHERE ci='" + nombre + "' AND clave='" + clave + "';";
+            string consultaSQL = "SELECT * FROM usuario WHERE ci='" + nombre + "' AND clave='" + clave + "';";
             MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
             if (resultado.Read())
             {
@@ -25,7 +25,7 @@ namespace Persistencia
         private eUsuario recrearP(MySqlDataReader resultado)
         {
             eUsuario persona = new eUsuario();
-            persona.id = Convert.ToInt16(resultado.GetString("id"));
+            persona.id = Convert.ToInt32(resultado.GetString("id_usuario"));
             persona.ci = resultado.GetString("ci");
             persona.nombre = resultado.GetString("nombre");
             persona.apellido = resultado.GetString("apellido");

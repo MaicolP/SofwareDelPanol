@@ -8,5 +8,6 @@ namespace Entidades
 {
     public class eCliente : eUsuario
     {
+        public bool docente { get; set; }
     }
 }
