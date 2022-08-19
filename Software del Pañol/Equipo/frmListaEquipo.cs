@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Software_del_Pañol
 {
-    public partial class frmAltaUsuario : Form
+    public partial class frmListaEquipo : Form
     {
-        public frmAltaUsuario()
+        public frmListaEquipo()
         {
             InitializeComponent();
-        }
-
-        private void lklVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            
         }
     }
 }

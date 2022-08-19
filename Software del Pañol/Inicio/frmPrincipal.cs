@@ -15,7 +15,7 @@ namespace Software_del_Pañol
     public partial class frmPrincipal : Form
     {
 
-        private Form[] frmHijoSeleccionado = new Form[2]; // frmHijoSeleccionado[1] es el actual y frmHijoSeleccionado[0] es el antiguo
+        private Form frmHijoSeleccionado = null;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -26,13 +26,13 @@ namespace Software_del_Pañol
         public frmPrincipal()
         {
             InitializeComponent();
+            cambiarFormHijo(new frmInicio());
         }
 
         private void cambiarFormHijo(Form formHijo)
         {
-            if (frmHijoSeleccionado[1] != null) frmHijoSeleccionado[1].Close();
-            frmHijoSeleccionado[0] = frmHijoSeleccionado[1];
-            frmHijoSeleccionado[1] = formHijo;
+            if (frmHijoSeleccionado != null) frmHijoSeleccionado.Close();
+            frmHijoSeleccionado = formHijo;
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
             formHijo.Dock = DockStyle.Fill;
@@ -40,13 +40,16 @@ namespace Software_del_Pañol
             pnlCont.Tag = formHijo;
             formHijo.BringToFront();
             formHijo.Show();
-            
         }
 
-        private void pnlCont_ControlAdded(object sender, ControlEventArgs e)
+        #region Inicio
+
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlBienvenida.Hide();
+            cambiarFormHijo(new frmInicio());
         }
+
+        #endregion
 
         #region Titulo
 
@@ -102,11 +105,26 @@ namespace Software_del_Pañol
             cambiarFormHijo(new frmAltaUsuario());
         }
 
-        private void eliminarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listaDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cambiarFormHijo(new frmBajaUsuario());
+            cambiarFormHijo(new frmListarUsuario());
         }
 
         #endregion
+
+        #region Gestion Equipo
+
+        private void agregarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cambiarFormHijo(new frmAltaEquipo());
+        }
+
+        private void listaDeEquiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cambiarFormHijo(new frmListaEquipo());
+        }
+
+        #endregion
+
     }
 }
