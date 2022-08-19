@@ -50,9 +50,5 @@ namespace Persistencia
             CerrarConexion(); 
         }
 
-
-    
-
-
     }
 }

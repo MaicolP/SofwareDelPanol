@@ -35,11 +35,15 @@
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblFecha = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lklCerrarSesion = new System.Windows.Forms.LinkLabel();
+            this.pnlCont = new System.Windows.Forms.Panel();
+            this.pnlBienvenida = new System.Windows.Forms.Panel();
+            this.lblBienvenida = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblHumedad = new System.Windows.Forms.Label();
             this.lblTemperatura = new System.Windows.Forms.Label();
@@ -50,16 +54,20 @@
             this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeLibrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosConReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosUrgentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioDeReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlTitulo.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.pnlCont.SuspendLayout();
+            this.pnlBienvenida.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.msMenu.SuspendLayout();
@@ -142,10 +150,57 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(124)))), ((int)(((byte)(234)))));
+            this.panel3.Controls.Add(this.lklCerrarSesion);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 36);
             this.panel3.TabIndex = 15;
+            // 
+            // lklCerrarSesion
+            // 
+            this.lklCerrarSesion.AutoSize = true;
+            this.lklCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lklCerrarSesion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lklCerrarSesion.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lklCerrarSesion.LinkColor = System.Drawing.Color.Red;
+            this.lklCerrarSesion.Location = new System.Drawing.Point(10, 9);
+            this.lklCerrarSesion.Name = "lklCerrarSesion";
+            this.lklCerrarSesion.Size = new System.Drawing.Size(80, 15);
+            this.lklCerrarSesion.TabIndex = 15;
+            this.lklCerrarSesion.TabStop = true;
+            this.lklCerrarSesion.Text = "Cerrar sesión";
+            this.lklCerrarSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCerrarSesion_LinkClicked);
+            // 
+            // pnlCont
+            // 
+            this.pnlCont.Controls.Add(this.pnlBienvenida);
+            this.pnlCont.Location = new System.Drawing.Point(249, 36);
+            this.pnlCont.Name = "pnlCont";
+            this.pnlCont.Size = new System.Drawing.Size(1101, 614);
+            this.pnlCont.TabIndex = 15;
+            this.pnlCont.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlCont_ControlAdded);
+            // 
+            // pnlBienvenida
+            // 
+            this.pnlBienvenida.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.pnlBienvenida.Controls.Add(this.lblBienvenida);
+            this.pnlBienvenida.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlBienvenida.Location = new System.Drawing.Point(0, 0);
+            this.pnlBienvenida.Name = "pnlBienvenida";
+            this.pnlBienvenida.Size = new System.Drawing.Size(1101, 60);
+            this.pnlBienvenida.TabIndex = 1;
+            // 
+            // lblBienvenida
+            // 
+            this.lblBienvenida.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblBienvenida.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenida.ForeColor = System.Drawing.Color.Black;
+            this.lblBienvenida.Location = new System.Drawing.Point(0, 0);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(1101, 60);
+            this.lblBienvenida.TabIndex = 0;
+            this.lblBienvenida.Text = "Bienvenido Administrador";
+            this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -171,6 +226,16 @@
             this.panel4.Size = new System.Drawing.Size(250, 113);
             this.panel4.TabIndex = 16;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.unknown2;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 70);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
@@ -189,16 +254,6 @@
             this.label1.Size = new System.Drawing.Size(235, 25);
             this.label1.TabIndex = 15;
             this.label1.Text = "Gestor de Préstamos";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.unknown2;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
             // 
             // panel5
             // 
@@ -276,7 +331,8 @@
             this.gestionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarUsuarioToolStripMenuItem,
             this.eliminarUsuarioToolStripMenuItem,
-            this.listaDeUsuariosToolStripMenuItem});
+            this.listaDeUsuariosToolStripMenuItem,
+            this.modificarUsuarioToolStripMenuItem});
             this.gestionDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestionDeUsuariosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
@@ -289,23 +345,32 @@
             // 
             this.agregarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
             this.agregarUsuarioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             this.eliminarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar usuario";
+            this.eliminarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.eliminarUsuarioToolStripMenuItem_Click);
             // 
             // listaDeUsuariosToolStripMenuItem
             // 
             this.listaDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaDeUsuariosToolStripMenuItem.Name = "listaDeUsuariosToolStripMenuItem";
-            this.listaDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.listaDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
             this.listaDeUsuariosToolStripMenuItem.Text = "Lista de usuarios";
+            // 
+            // modificarUsuarioToolStripMenuItem
+            // 
+            this.modificarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
+            this.modificarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(199, 24);
+            this.modificarUsuarioToolStripMenuItem.Text = "Modificar Usuario";
             // 
             // gestionDeEquiposToolStripMenuItem
             // 
@@ -357,6 +422,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 650);
+            this.Controls.Add(this.pnlCont);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -367,11 +433,15 @@
             this.Text = "frmPrincipal";
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.pnlCont.ResumeLayout(false);
+            this.pnlBienvenida.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -409,5 +479,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem modificarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.LinkLabel lklCerrarSesion;
+        private System.Windows.Forms.Panel pnlCont;
+        private System.Windows.Forms.Panel pnlBienvenida;
+        private System.Windows.Forms.Label lblBienvenida;
     }
 }

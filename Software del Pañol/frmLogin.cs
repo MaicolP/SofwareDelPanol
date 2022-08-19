@@ -40,13 +40,18 @@ namespace Software_del_Pañol
                 if (usuario == null)
                 {
                     lblMensaje.Text = "Usuario o contraseña incorrecta";
+                    txtClave.Clear();
+                    txtUsuario.Clear();
                 } else
                 {
+                    txtClave.Clear();
+                    txtUsuario.Clear();
                     this.Hide();
 
                     frmPrincipal frm1 = new frmPrincipal();
 
                     frm1.Show();
+
                 }
             }
 
