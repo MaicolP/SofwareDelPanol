@@ -22,6 +22,13 @@ namespace Persistencia
             return usuario;
         }
 
+        public void altaUsuario(eUsuario usuario)
+        {
+            string consultaSQL = "INSERT INTO usuario (nombre, apellido, ci, clave) VALUES ('" + usuario.nombre + "', '" + usuario.apellido +
+                                 "', '" + usuario.ci + "', '" + usuario.clave + "');";
+            ejecutarSQL(consultaSQL);
+        }
+
         private eUsuario recrearP(MySqlDataReader resultado)
         {
             eUsuario persona = new eUsuario();
@@ -32,6 +39,18 @@ namespace Persistencia
             persona.clave = resultado.GetString("clave");
 
             return persona;
+        }
+
+        public List<eUsuario> listarUsuario()
+        {
+            List<eUsuario> _usuarios = new List<eUsuario>();
+            string consultaSQL = "SELECT * FROM usuario ;";
+            MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
+            while (resultado.Read())
+            {
+                _usuarios.Add(recrearP(resultado));
+            }
+            return _usuarios;
         }
     }
 }

@@ -15,5 +15,17 @@ namespace Dominio
             pUsuario unU = new pUsuario();
             return unU.login(nombre, clave);
         }
+
+        public void altaUsuario(eUsuario usuario)
+        {
+            pUsuario unU = new pUsuario();
+            unU.altaUsuario(usuario);
+        }
+
+        public List<eUsuario> listarUsuario()
+        {
+            pUsuario unU = new pUsuario();
+            return unU.listarUsuario();
+        }
     }
 }

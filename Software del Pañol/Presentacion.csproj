@@ -46,24 +46,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Equipo\frmAltaEquipo - Copia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.designer.cs">
+    <Compile Include="Equipo\frmAltaEquipo - Copia.Designer.cs">
+      <DependentUpon>frmAltaEquipo - Copia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Equipo\frmListaEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipo\frmListaEquipo.Designer.cs">
+      <DependentUpon>frmListaEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\frmListarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\frmListarUsuario.Designer.cs">
+      <DependentUpon>frmListarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\frmAltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\frmAltaUsuario.Designer.cs">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\frmLogin.designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPrincipal.cs">
+    <Compile Include="Inicio\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
+    <Compile Include="Inicio\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Equipo\frmAltaEquipo - Copia.resx">
+      <DependentUpon>frmAltaEquipo - Copia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipo\frmListaEquipo.resx">
+      <DependentUpon>frmListaEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\frmListarUsuario.resx">
+      <DependentUpon>frmListarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\frmAltaUsuario.resx">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrincipal.resx">
+    <EmbeddedResource Include="Inicio\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
