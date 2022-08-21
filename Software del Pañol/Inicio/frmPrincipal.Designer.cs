@@ -49,8 +49,6 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.inicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,6 +167,9 @@
             // 
             // pnlCont
             // 
+            this.pnlCont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCont.Location = new System.Drawing.Point(249, 36);
             this.pnlCont.Name = "pnlCont";
             this.pnlCont.Size = new System.Drawing.Size(1101, 614);
@@ -301,9 +302,6 @@
             // 
             // gestionDeUsuariosToolStripMenuItem
             // 
-            this.gestionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarUsuarioToolStripMenuItem,
-            this.listaDeUsuariosToolStripMenuItem});
             this.gestionDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gestionDeUsuariosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
@@ -311,22 +309,7 @@
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(211, 39);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestión de Usuarios";
             this.gestionDeUsuariosToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // agregarUsuarioToolStripMenuItem
-            // 
-            this.agregarUsuarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agregarUsuarioToolStripMenuItem.Name = "agregarUsuarioToolStripMenuItem";
-            this.agregarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
-            this.agregarUsuarioToolStripMenuItem.Text = "Agregar usuario";
-            this.agregarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.agregarUsuarioToolStripMenuItem_Click);
-            // 
-            // listaDeUsuariosToolStripMenuItem
-            // 
-            this.listaDeUsuariosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listaDeUsuariosToolStripMenuItem.Name = "listaDeUsuariosToolStripMenuItem";
-            this.listaDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
-            this.listaDeUsuariosToolStripMenuItem.Text = "Lista de usuarios";
-            this.listaDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.listaDeUsuariosToolStripMenuItem_Click);
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // gestionDeEquiposToolStripMenuItem
             // 
@@ -434,8 +417,6 @@
         private System.Windows.Forms.MenuStrip msMenu;
         private System.Windows.Forms.ToolStripMenuItem inicioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agregarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDeUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDeEquiposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDeLibrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prestamosConReservaToolStripMenuItem;

@@ -27,5 +27,11 @@ namespace Dominio
             pUsuario unU = new pUsuario();
             return unU.listarUsuario();
         }
+
+        public void bajaUsuario(string id)
+        {
+            pUsuario unU = new pUsuario();
+            unU.bajaUsuario(id);
+        }
     }
 }

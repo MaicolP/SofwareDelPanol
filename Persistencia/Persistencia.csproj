@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsPersistencia.cs" />
+    <Compile Include="pAsisTec.cs" />
+    <Compile Include="pCliente.cs" />
     <Compile Include="pUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

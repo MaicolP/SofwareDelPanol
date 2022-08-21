@@ -52,5 +52,11 @@ namespace Persistencia
             }
             return _usuarios;
         }
+
+        public void bajaUsuario(string id)
+        {
+            string consultaSQL = "DELETE FROM usuario WHERE id_usuario='" + id + "';";
+            ejecutarSQL(consultaSQL);
+        }
     }
 }

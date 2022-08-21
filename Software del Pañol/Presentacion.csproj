@@ -64,17 +64,11 @@
     <Compile Include="Inicio\frmInicio.Designer.cs">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario\frmListarUsuario.cs">
+    <Compile Include="Usuario\frmGestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Usuario\frmListarUsuario.Designer.cs">
-      <DependentUpon>frmListarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Usuario\frmAltaUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuario\frmAltaUsuario.Designer.cs">
-      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    <Compile Include="Usuario\frmGestionUsuarios.Designer.cs">
+      <DependentUpon>frmGestionUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio\frmLogin.cs">
       <SubType>Form</SubType>
@@ -99,11 +93,8 @@
     <EmbeddedResource Include="Inicio\frmInicio.resx">
       <DependentUpon>frmInicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\frmListarUsuario.resx">
-      <DependentUpon>frmListarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usuario\frmAltaUsuario.resx">
-      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Usuario\frmGestionUsuarios.resx">
+      <DependentUpon>frmGestionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
