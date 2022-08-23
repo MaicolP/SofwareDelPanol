@@ -10,11 +10,14 @@ namespace Persistencia
 {
     public class pUsuario : clsPersistencia
     {
+        string consultaSQL;
+        MySqlDataReader resultado;
+
         public eUsuario login(string nombre, string clave)
         {
             eUsuario usuario = null;
-            string consultaSQL = "SELECT * FROM usuario WHERE ci='" + nombre + "' AND clave='" + clave + "';";
-            MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
+            consultaSQL = "SELECT * FROM usuario WHERE ci='" + nombre + "' AND clave='" + clave + "';";
+            resultado = ejecutarYdevolver(consultaSQL);
             if (resultado.Read())
             {
                 usuario = recrearP(resultado);
@@ -24,8 +27,14 @@ namespace Persistencia
 
         public void altaUsuario(eUsuario usuario)
         {
-            string consultaSQL = "INSERT INTO usuario (nombre, apellido, ci, clave) VALUES ('" + usuario.nombre + "', '" + usuario.apellido +
+            consultaSQL = "INSERT INTO usuario (nombre, apellido, ci, clave) VALUES ('" + usuario.nombre + "', '" + usuario.apellido +
                                  "', '" + usuario.ci + "', '" + usuario.clave + "');";
+            ejecutarSQL(consultaSQL);
+        }
+
+        public void modificarUsuario(string id, string atributo, string valor)
+        {
+            consultaSQL = "UPDATE usuario SET " + atributo + " = '" + valor + "' WHERE id_usuario='" + id +"';";
             ejecutarSQL(consultaSQL);
         }
 
@@ -41,21 +50,53 @@ namespace Persistencia
             return persona;
         }
 
-        public List<eUsuario> listarUsuario()
+        public List<eUsuario> listarUsuario(int index)
         {
             List<eUsuario> _usuarios = new List<eUsuario>();
-            string consultaSQL = "SELECT * FROM usuario ;";
-            MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
-            while (resultado.Read())
+
+            switch (index)
             {
-                _usuarios.Add(recrearP(resultado));
+                case 0:     //Todos
+                    this.consultaSQL = "SELECT * FROM usuario ;";
+                    this.resultado = ejecutarYdevolver(this.consultaSQL);
+                    while (this.resultado.Read())
+                    {
+                        _usuarios.Add(recrearP(this.resultado));
+                    }
+                    break;
+
+                case 1:     //Alumnos
+                    this.consultaSQL = "SELECT * FROM usuario INNER JOIN cliente ON usuario.id_usuario=cliente.id_cliente WHERE cliente.docente=false;";
+                    this.resultado = ejecutarYdevolver(this.consultaSQL);
+                    while (this.resultado.Read())
+                    {
+                        _usuarios.Add(recrearP(this.resultado));
+                    }
+                    break;
+                case 2:     //Docentes
+                    this.consultaSQL = "SELECT * FROM usuario INNER JOIN cliente ON usuario.id_usuario=cliente.id_cliente WHERE cliente.docente=true;";
+                    this.resultado = ejecutarYdevolver(this.consultaSQL);
+                    while (this.resultado.Read())
+                    {
+                        _usuarios.Add(recrearP(this.resultado));
+                    }
+                    break;
+                case 3:     //Asistentes Tecnicos
+                    this.consultaSQL = "SELECT * FROM usuario INNER JOIN asistente_tecnico ON usuario.id_usuario=asistente_tecnico.id_asistente;";
+                    this.resultado = ejecutarYdevolver(this.consultaSQL);
+                    while (this.resultado.Read())
+                    {
+                        _usuarios.Add(recrearP(this.resultado));
+                    }
+                    break;
             }
+
             return _usuarios;
         }
 
         public void bajaUsuario(string id)
         {
-            string consultaSQL = "DELETE FROM usuario WHERE id_usuario='" + id + "';";
+            consultaSQL = "DELETE FROM usuario WHERE id_usuario='" + id + "';";
             ejecutarSQL(consultaSQL);
         }
     }

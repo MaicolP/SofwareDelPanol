@@ -10,28 +10,31 @@ namespace Dominio
 {
     public class dUsuario
     {
+        private pUsuario unU = new pUsuario();
+
         public eUsuario login(string nombre, string clave)
         {
-            pUsuario unU = new pUsuario();
             return unU.login(nombre, clave);
         }
 
         public void altaUsuario(eUsuario usuario)
         {
-            pUsuario unU = new pUsuario();
             unU.altaUsuario(usuario);
         }
 
-        public List<eUsuario> listarUsuario()
+        public List<eUsuario> listarUsuario(int index)
         {
-            pUsuario unU = new pUsuario();
-            return unU.listarUsuario();
+            return unU.listarUsuario(index);
         }
 
         public void bajaUsuario(string id)
         {
-            pUsuario unU = new pUsuario();
             unU.bajaUsuario(id);
+        }
+
+        public void modificarUsuario(string id, string atributo, string valor)
+        {
+            unU.modificarUsuario(id, atributo, valor);
         }
     }
 }

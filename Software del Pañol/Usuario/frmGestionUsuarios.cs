@@ -17,8 +17,6 @@ namespace Software_del_Pañol
         public frmGestionUsuarios()
         {
             InitializeComponent();
-            dUsuario usuario = new dUsuario();
-            dgvUsuarios.DataSource = usuario.listarUsuario();
             cbxTipoUsuario.SelectedIndex = 0;
         }
 
@@ -35,6 +33,9 @@ namespace Software_del_Pañol
             } else if (rbDocente.Checked == false && rbAsisTec.Checked == false && rbAlumno.Checked == false)
             {
                 lblMensaje.Text = "Porfavor seleccione un tipo de usuario";
+            } else if (txtCi.Text.Length != 7)
+            {
+                lblMensaje.Text = "Porfavor asegurese que la CI ingresada sea correcta";
             } else
             {
                 foreach (DataGridViewRow fila in dgvUsuarios.Rows) // Chequea si la ci está repetida
@@ -81,7 +82,7 @@ namespace Software_del_Pañol
                         unC.altaCliente(cliente);
                     }
 
-                    dgvUsuarios.DataSource = unU.listarUsuario();
+                    dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
 
                     txtCi.Clear();
                     txtNombre.Clear();
@@ -109,24 +110,27 @@ namespace Software_del_Pañol
                 {
                     unU.bajaUsuario(dgvUsuarios.SelectedRows[i].Cells[0].Value.ToString());
                 }
-                dgvUsuarios.DataSource = unU.listarUsuario();
+                dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
             }
         }
 
         private void cbxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbxTipoUsuario.SelectedIndex)
-            {
-                case '0' :
-                    
-                    break;
-                case '1':
-                    break;
-                case '2':
-                    break;
-                case '3':
-                    break;
-            }
+            dUsuario unU = new dUsuario();
+            dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
+        }
+
+        private void dgvUsuarios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            dUsuario unU = new dUsuario();
+
+            string atributo = dgvUsuarios.CurrentCell.OwningColumn.HeaderText;
+            string valor = dgvUsuarios.CurrentCell.Value.ToString();
+            string id = dgvUsuarios.CurrentCell.OwningRow.Cells[0].Value.ToString();
+
+            unU.modificarUsuario(id, atributo, valor);
+            dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
         }
     }
 }
