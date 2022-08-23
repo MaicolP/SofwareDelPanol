@@ -19,6 +19,7 @@ namespace Software_del_Pañol
             InitializeComponent();
             dUsuario usuario = new dUsuario();
             dgvUsuarios.DataSource = usuario.listarUsuario();
+            cbxTipoUsuario.SelectedIndex = 0;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -28,7 +29,7 @@ namespace Software_del_Pañol
             if (txtCi.Text == "" || txtNombre.Text == "" || txtApellido.Text == "" || txtClave.Text == "")
             {
                 lblMensaje.Text = "Relle todos los campos porfavor";
-            } else if (txtCi.Text == txtNombre.Text || txtCi.Text == txtNombre.Text || txtNombre == txtApellido)
+            } else if (txtCi.Text == txtNombre.Text || txtCi.Text == txtApellido.Text || txtNombre == txtApellido)
             {
                 lblMensaje.Text = "No pueden existir campos con el mismo nombre, excepto CI y Clave";
             } else if (rbDocente.Checked == false && rbAsisTec.Checked == false && rbAlumno.Checked == false)
@@ -36,7 +37,7 @@ namespace Software_del_Pañol
                 lblMensaje.Text = "Porfavor seleccione un tipo de usuario";
             } else
             {
-                foreach (DataGridViewRow fila in dgvUsuarios.Rows)
+                foreach (DataGridViewRow fila in dgvUsuarios.Rows) // Chequea si la ci está repetida
                 {
                     if (fila.Cells[1].Value.ToString() == txtCi.Text)
                     {
@@ -75,12 +76,20 @@ namespace Software_del_Pañol
 
                         if (rbDocente.Checked) cliente.docente = true;
                         if (rbAlumno.Checked) cliente.docente = false;
+
                         dCliente unC = new dCliente();
                         unC.altaCliente(cliente);
                     }
 
                     dgvUsuarios.DataSource = unU.listarUsuario();
 
+                    txtCi.Clear();
+                    txtNombre.Clear();
+                    txtApellido.Clear();
+                    txtClave.Clear();
+                    rbAlumno.Checked = false;
+                    rbDocente.Checked = false;
+                    rbAsisTec.Checked = false;
                 } else
                 {
                     lblMensaje.Text = "La CI ingresada ya está en el sistema";
@@ -104,5 +113,20 @@ namespace Software_del_Pañol
             }
         }
 
+        private void cbxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxTipoUsuario.SelectedIndex)
+            {
+                case '0' :
+                    
+                    break;
+                case '1':
+                    break;
+                case '2':
+                    break;
+                case '3':
+                    break;
+            }
+        }
     }
 }
