@@ -15,5 +15,17 @@ namespace Dominio
             pAsisTec unP = new pAsisTec();
             unP.altaAsisTec(asisTec);
         }
+
+        public void bajaAsisTec(eAsisTec asisTec)
+        {
+            pAsisTec unP = new pAsisTec();
+            unP.bajaAsisTec(asisTec);
+        }
+
+        public List<eAsisTec> listarAsisTec()
+        {
+            pAsisTec unP = new pAsisTec();
+            return unP.listarAsisTec();
+        }
     }
 }

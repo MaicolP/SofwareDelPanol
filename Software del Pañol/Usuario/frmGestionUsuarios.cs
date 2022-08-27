@@ -17,47 +17,40 @@ namespace Software_del_Pañol
         public frmGestionUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void frmGestionUsuarios_Load(object sender, EventArgs e)
+        {
             cbxTipoUsuario.SelectedIndex = 0;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            bool auxRepetido = false;
-
-            if (txtCi.Text == "" || txtNombre.Text == "" || txtApellido.Text == "" || txtClave.Text == "")
+            if (mskCi.MaskFull != true || txtNombre.Text == "" || txtApellido.Text == "" || txtClave.Text == "")
             {
                 lblMensaje.Text = "Relle todos los campos porfavor";
-            } else if (txtCi.Text == txtNombre.Text || txtCi.Text == txtApellido.Text || txtNombre == txtApellido)
+            } else if (mskCi.Text == txtNombre.Text || mskCi.Text == txtApellido.Text || txtNombre == txtApellido)
             {
                 lblMensaje.Text = "No pueden existir campos con el mismo nombre, excepto CI y Clave";
             } else if (rbDocente.Checked == false && rbAsisTec.Checked == false && rbAlumno.Checked == false)
             {
                 lblMensaje.Text = "Porfavor seleccione un tipo de usuario";
-            } else if (txtCi.Text.Length != 7)
-            {
-                lblMensaje.Text = "Porfavor asegurese que la CI ingresada sea correcta";
             } else
             {
-                foreach (DataGridViewRow fila in dgvUsuarios.Rows) // Chequea si la ci está repetida
+                eUsuario usuario = new eUsuario();
+                usuario.ci = mskCi.Text;
+                dUsuario unDu = new dUsuario();
+                if (unDu.buscarUsuario(usuario) == null)
                 {
-                    if (fila.Cells[1].Value.ToString() == txtCi.Text)
-                    {
-                        auxRepetido = true;
-                    }
-                }
-                if (auxRepetido == false)
-                {
-                    dUsuario unU = new dUsuario();
-                    
                     if (rbAsisTec.Checked) {
+
                         eAsisTec asisTec = new eAsisTec();
-                        asisTec.ci = txtCi.Text;
+                        asisTec.ci = mskCi.Text;
                         asisTec.nombre = txtNombre.Text;
                         asisTec.apellido = txtApellido.Text;
                         asisTec.clave = txtClave.Text;
 
-                        eUsuario usuario = asisTec;
-                        dUsuario unDu = new dUsuario();
+                        usuario = asisTec;
                         unDu.altaUsuario(usuario);
 
                         dAsisTec unAsis = new dAsisTec();
@@ -65,35 +58,35 @@ namespace Software_del_Pañol
                     }
                     if (rbDocente.Checked || rbAlumno.Checked)
                     {
-                        eCliente cliente = new eCliente();
-                        cliente.ci = txtCi.Text;
-                        cliente.nombre = txtNombre.Text;
-                        cliente.apellido = txtApellido.Text;
-                        cliente.clave = txtClave.Text;
+                        eResponsable responsable = new eResponsable();
+                        responsable.ci = mskCi.Text;
+                        responsable.nombre = txtNombre.Text;
+                        responsable.apellido = txtApellido.Text;
+                        responsable.clave = txtClave.Text;
 
-                        eUsuario usuario = cliente;
-                        dUsuario unDu = new dUsuario();
+                        usuario = responsable;
                         unDu.altaUsuario(usuario);
 
-                        if (rbDocente.Checked) cliente.docente = true;
-                        if (rbAlumno.Checked) cliente.docente = false;
+                        if (rbDocente.Checked) responsable.docente = true;
+                        if (rbAlumno.Checked) responsable.docente = false;
 
-                        dCliente unC = new dCliente();
-                        unC.altaCliente(cliente);
+                        dResponsable unC = new dResponsable();
+                        unC.altaResponsable(responsable);
                     }
 
-                    dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
+                    cbxTipoUsuario_SelectedIndexChanged(cbxTipoUsuario, EventArgs.Empty); //Invoca el evento del cbx para realizar el refresh del dgv
 
-                    txtCi.Clear();
+                    mskCi.Clear();
                     txtNombre.Clear();
                     txtApellido.Clear();
                     txtClave.Clear();
                     rbAlumno.Checked = false;
                     rbDocente.Checked = false;
                     rbAsisTec.Checked = false;
+                    lblMensaje.Text = "";
                 } else
                 {
-                    lblMensaje.Text = "La CI ingresada ya está en el sistema";
+                    lblMensaje.Text = "La CI ya está ingresada en el sistema";
                 }
 
             }
@@ -106,31 +99,31 @@ namespace Software_del_Pañol
                             " usuarios?", "Alerta de seguridad", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                for (int i = 0; i < dgvUsuarios.SelectedRows.Count; i++)
-                {
-                    unU.bajaUsuario(dgvUsuarios.SelectedRows[i].Cells[0].Value.ToString());
-                }
-                dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
+                
             }
         }
 
         private void cbxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dUsuario unU = new dUsuario();
-            dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
-        }
-
-        private void dgvUsuarios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-            dUsuario unU = new dUsuario();
-
-            string atributo = dgvUsuarios.CurrentCell.OwningColumn.HeaderText;
-            string valor = dgvUsuarios.CurrentCell.Value.ToString();
-            string id = dgvUsuarios.CurrentCell.OwningRow.Cells[0].Value.ToString();
-
-            unU.modificarUsuario(id, atributo, valor);
-            dgvUsuarios.DataSource = unU.listarUsuario(cbxTipoUsuario.SelectedIndex);
+            switch (cbxTipoUsuario.SelectedIndex)
+            {
+                case 0:     //Todos
+                    dUsuario unU = new dUsuario();
+                    dgvUsuarios.DataSource = unU.listarUsuario();
+                    break;
+                case 1:     //Alumnos
+                    dResponsable unRA = new dResponsable();
+                    dgvUsuarios.DataSource = unRA.listarResponsableSegunTipo(false);
+                    break;
+                case 2:     //Docentes
+                    dResponsable unRD = new dResponsable();
+                    dgvUsuarios.DataSource = unRD.listarResponsableSegunTipo(true);
+                    break;
+                case 3:     //Asistentes Tecnicos
+                    dAsisTec unAT = new dAsisTec();
+                    dgvUsuarios.DataSource = unAT.listarAsisTec();
+                    break;
+            }
         }
     }
 }
