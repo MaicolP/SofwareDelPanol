@@ -100,14 +100,9 @@ namespace Software_del_Pañol
 
         #region Gestion Usuario
 
-        private void agregarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cambiarFormHijo(new frmAltaUsuario());
-        }
-
-        private void listaDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cambiarFormHijo(new frmListarUsuario());
+            cambiarFormHijo(new frmGestionUsuarios());
         }
 
         #endregion
@@ -125,6 +120,5 @@ namespace Software_del_Pañol
         }
 
         #endregion
-
     }
 }
