@@ -201,7 +201,6 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.unknown2;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 70);
