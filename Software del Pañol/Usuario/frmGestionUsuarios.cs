@@ -99,14 +99,21 @@ namespace Software_del_Pañol
                             " ?", "Alerta de seguridad", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (result == DialogResult.OK)
             {
-                dUsuario unU = new dUsuario();
-                eUsuario usuario = new eUsuario();
-                usuario.ci = mskCi.Text;
-
+                eResponsable responsable = new eResponsable();
+                responsable.ci = mskCi.Text;
                 dResponsable unDR = new dResponsable();
 
-                if (unDR.buscarResponsable((eResponsable)usuario) != null) unDR.bajaResponsable((eResponsable)usuario);
-                unU.bajaUsuario(usuario);
+                if (unDR.buscarResponsable(responsable) != null)
+                {
+                    unDR.bajaResponsable(responsable);
+                } else
+                {
+                    eAsisTec asisTec = new eAsisTec();
+                    asisTec.ci = mskCi.Text;
+                    dAsisTec unDAsis = new dAsisTec();
+                    unDAsis.bajaAsisTec(asisTec);
+                }
+                cbxTipoUsuario_SelectedIndexChanged(cbxTipoUsuario, EventArgs.Empty);
             }
         }
 

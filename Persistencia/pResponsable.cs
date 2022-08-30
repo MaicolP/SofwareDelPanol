@@ -20,7 +20,7 @@ namespace Persistencia
 
         public void bajaResponsable(eResponsable responsable)
         {
-            string consultaSQL = "DELETE FROM responsable INNER JOIN usuario ON usuario.id_usuario=responsable.id_responsable WHERE ci='" + responsable.ci + "';";
+            string consultaSQL = "DELETE responsable, usuario FROM responsable INNER JOIN usuario ON usuario.id_usuario=responsable.id_responsable WHERE usuario.ci='" + responsable.ci + "';";
             ejecutarSQL(consultaSQL);
         }
 
@@ -62,7 +62,7 @@ namespace Persistencia
 
         public eResponsable buscarResponsable(eResponsable responsable)
         {
-            string consultaSQL = "SELECT * FROM responsable WHERE ci='" + responsable.ci + "';";
+            string consultaSQL = "SELECT * FROM responsable INNER JOIN usuario ON usuario.id_usuario=responsable.id_responsable WHERE usuario.ci='" + responsable.ci + "';";
             MySqlDataReader resultado = ejecutarYdevolver(consultaSQL);
             responsable = null;
             while (resultado.Read())
