@@ -75,7 +75,7 @@
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximizar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMaximizar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnMaximizar.Location = new System.Drawing.Point(1085, 9);
+            this.btnMaximizar.Location = new System.Drawing.Point(1285, 9);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(28, 24);
             this.btnMaximizar.TabIndex = 11;
@@ -91,7 +91,7 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimizar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnMinimizar.Location = new System.Drawing.Point(1051, 9);
+            this.btnMinimizar.Location = new System.Drawing.Point(1251, 9);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(28, 24);
             this.btnMinimizar.TabIndex = 10;
@@ -107,7 +107,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnCerrar.Location = new System.Drawing.Point(1119, 9);
+            this.btnCerrar.Location = new System.Drawing.Point(1319, 9);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(28, 24);
             this.btnCerrar.TabIndex = 9;
@@ -126,7 +126,7 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(1150, 36);
+            this.pnlTitulo.Size = new System.Drawing.Size(1350, 36);
             this.pnlTitulo.TabIndex = 12;
             this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
             // 
@@ -172,7 +172,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCont.Location = new System.Drawing.Point(249, 36);
             this.pnlCont.Name = "pnlCont";
-            this.pnlCont.Size = new System.Drawing.Size(901, 614);
+            this.pnlCont.Size = new System.Drawing.Size(1101, 614);
             this.pnlCont.TabIndex = 15;
             // 
             // panel1
@@ -201,6 +201,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.logo;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 70);
@@ -378,7 +379,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 650);
+            this.ClientSize = new System.Drawing.Size(1350, 650);
             this.Controls.Add(this.pnlCont);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTitulo);

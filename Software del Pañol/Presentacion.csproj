@@ -142,6 +142,7 @@
     <None Include="Resources\iconCandado.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo.png" />
     <Content Include="Resources\logoApp.png" />
     <None Include="Resources\unknown1.png" />
     <None Include="Resources\unknown.png" />
