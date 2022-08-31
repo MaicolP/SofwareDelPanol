@@ -22,6 +22,7 @@ namespace Software_del_Pañol
         private void frmGestionUsuarios_Load(object sender, EventArgs e)
         {
             cbxTipoUsuario.SelectedIndex = 0;
+            actualizarDgv();
             modoEdicion(false);
         }
 
@@ -75,7 +76,7 @@ namespace Software_del_Pañol
                         unC.altaResponsable(responsable);
                     }
 
-                    cbxTipoUsuario_SelectedIndexChanged(cbxTipoUsuario, EventArgs.Empty); //Invoca el evento del cbx para realizar el refresh del dgv
+                    actualizarDgv();
 
                     mskCi.Clear();
                     txtNombre.Clear();
@@ -113,34 +114,13 @@ namespace Software_del_Pañol
                     dAsisTec unDAsis = new dAsisTec();
                     unDAsis.bajaAsisTec(asisTec);
                 }
-                cbxTipoUsuario_SelectedIndexChanged(cbxTipoUsuario, EventArgs.Empty);
+                actualizarDgv();
             }
         }
 
         private void cbxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (cbxTipoUsuario.SelectedIndex)
-            {
-                case 0:     //Todos
-                    dUsuario unU = new dUsuario();
-                    dgvUsuarios.DataSource = unU.listarUsuario();
-                    break;
-                case 1:     //Alumnos
-                    dResponsable unRA = new dResponsable();
-                    dgvUsuarios.DataSource = unRA.listarResponsableSegunTipo(false);
-                    dgvUsuarios.Columns.Remove("docente");
-                    break;
-                case 2:     //Docentes
-                    dResponsable unRD = new dResponsable();
-                    dgvUsuarios.DataSource = unRD.listarResponsableSegunTipo(true);
-                    dgvUsuarios.Columns.Remove("docente");
-                    break;
-                case 3:     //Asistentes Tecnicos
-                    dAsisTec unAT = new dAsisTec();
-                    dgvUsuarios.DataSource = unAT.listarAsisTec();
-                    break;
-            }
-            dgvUsuarios.ClearSelection();
+            actualizarDgv();
         }
 
         private void modoEdicion(bool aux)
@@ -196,6 +176,50 @@ namespace Software_del_Pañol
         private void frmGestionUsuarios_MouseClick(object sender, MouseEventArgs e)
         {
             dgvUsuarios.ClearSelection();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if ( txtNombre.Text != "" || txtApellido.Text != "" || txtClave.Text != "" )
+            {
+                dUsuario unU = new dUsuario();
+                eUsuario usuario = new eUsuario();
+                usuario.ci = mskCi.Text;
+                usuario.nombre = txtNombre.Text;
+                usuario.apellido = txtApellido.Text;
+                usuario.clave = txtClave.Text;
+
+                unU.modificarUsuario(usuario);
+                actualizarDgv();
+            } else
+            {
+                lblMensaje.Text = "No puede dejar campos vacíos";
+            }
+        }
+
+        private void actualizarDgv()
+        {
+            switch (cbxTipoUsuario.SelectedIndex)
+            {
+                case 0:     //Todos
+                    dUsuario unU = new dUsuario();
+                    dgvUsuarios.DataSource = unU.listarUsuario();
+                    break;
+                case 1:     //Alumnos
+                    dResponsable unRA = new dResponsable();
+                    dgvUsuarios.DataSource = unRA.listarResponsableSegunTipo(false);
+                    dgvUsuarios.Columns.Remove("docente");
+                    break;
+                case 2:     //Docentes
+                    dResponsable unRD = new dResponsable();
+                    dgvUsuarios.DataSource = unRD.listarResponsableSegunTipo(true);
+                    dgvUsuarios.Columns.Remove("docente");
+                    break;
+                case 3:     //Asistentes Tecnicos
+                    dAsisTec unAT = new dAsisTec();
+                    dgvUsuarios.DataSource = unAT.listarAsisTec();
+                    break;
+            }
         }
     }
 }
