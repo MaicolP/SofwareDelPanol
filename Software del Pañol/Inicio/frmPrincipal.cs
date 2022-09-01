@@ -17,6 +17,8 @@ namespace Software_del_Pañol
 
         private Form frmHijoSeleccionado = null;
 
+        public eUsuario usuarioActual;
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -26,6 +28,10 @@ namespace Software_del_Pañol
         public frmPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
             cambiarFormHijo(new frmInicio());
         }
 
@@ -109,16 +115,12 @@ namespace Software_del_Pañol
 
         #region Gestion Equipo
 
-        private void agregarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tiposDeEquiposToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            cambiarFormHijo(new frmAltaEquipo());
-        }
-
-        private void listaDeEquiposToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cambiarFormHijo(new frmListaEquipo());
+            cambiarFormHijo(new frmTiposDeEquipos());
         }
 
         #endregion
+
     }
 }

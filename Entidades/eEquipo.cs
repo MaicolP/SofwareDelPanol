@@ -15,9 +15,6 @@ namespace Entidades
         estado estado { get; set; }
         string observaciones { get; set; }
         DateTime fechaIngreso { get; set; }
-
-        //Tipo y subtipo????????????
-
     }
 
     enum estado {Disponible,Reservado,Mantenimiento,Roto}

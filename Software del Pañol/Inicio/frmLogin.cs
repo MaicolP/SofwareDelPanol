@@ -51,7 +51,7 @@ namespace Software_del_Pañol
                     frmPrincipal frm1 = new frmPrincipal();
 
                     frm1.Show();
-
+                    frm1.usuarioActual = usuario;
                 }
             }
 

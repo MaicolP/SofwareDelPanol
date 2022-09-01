@@ -39,6 +39,8 @@
             this.pnlCont = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblHumedad = new System.Windows.Forms.Label();
@@ -49,22 +51,20 @@
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposDeEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeLibrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosConReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prestamosUrgentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioDeReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTitulo.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.msMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMaximizar
@@ -199,6 +199,25 @@
             this.panel4.Size = new System.Drawing.Size(250, 113);
             this.panel4.TabIndex = 16;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.logo;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 70);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Location = new System.Drawing.Point(50, 101);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 2);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -296,7 +315,7 @@
             // 
             this.gestionDeEquiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarEquipoToolStripMenuItem,
-            this.listaDeEquiposToolStripMenuItem});
+            this.tiposDeEquiposToolStripMenuItem});
             this.gestionDeEquiposToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.gestionDeEquiposToolStripMenuItem.Name = "gestionDeEquiposToolStripMenuItem";
             this.gestionDeEquiposToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5);
@@ -308,17 +327,16 @@
             // 
             this.agregarEquipoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agregarEquipoToolStripMenuItem.Name = "agregarEquipoToolStripMenuItem";
-            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.agregarEquipoToolStripMenuItem.Text = "Agregar equipo";
-            this.agregarEquipoToolStripMenuItem.Click += new System.EventHandler(this.agregarEquipoToolStripMenuItem_Click);
+            this.agregarEquipoToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.agregarEquipoToolStripMenuItem.Text = "Gestion de Equipos";
             // 
-            // listaDeEquiposToolStripMenuItem
+            // tiposDeEquiposToolStripMenuItem
             // 
-            this.listaDeEquiposToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listaDeEquiposToolStripMenuItem.Name = "listaDeEquiposToolStripMenuItem";
-            this.listaDeEquiposToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
-            this.listaDeEquiposToolStripMenuItem.Text = "Lista de equipos";
-            this.listaDeEquiposToolStripMenuItem.Click += new System.EventHandler(this.listaDeEquiposToolStripMenuItem_Click);
+            this.tiposDeEquiposToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiposDeEquiposToolStripMenuItem.Name = "tiposDeEquiposToolStripMenuItem";
+            this.tiposDeEquiposToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
+            this.tiposDeEquiposToolStripMenuItem.Text = "Tipos de Equipos";
+            this.tiposDeEquiposToolStripMenuItem.Click += new System.EventHandler(this.tiposDeEquiposToolStripMenuItem_Click_1);
             // 
             // gestionDeLibrosToolStripMenuItem
             // 
@@ -356,25 +374,6 @@
             this.calendarioDeReservasToolStripMenuItem.Text = "Calendario de reservas";
             this.calendarioDeReservasToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Software_del_Pañol.Properties.Resources.logo;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 70);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 101);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 2);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +388,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -396,14 +396,14 @@
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +435,6 @@
         private System.Windows.Forms.LinkLabel lklCerrarSesion;
         private System.Windows.Forms.Panel pnlCont;
         private System.Windows.Forms.ToolStripMenuItem agregarEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDeEquiposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tiposDeEquiposToolStripMenuItem;
     }
 }
